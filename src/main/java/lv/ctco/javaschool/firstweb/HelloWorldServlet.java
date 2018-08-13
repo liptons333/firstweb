@@ -12,11 +12,16 @@ import java.io.PrintWriter;
 public class HelloWorldServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("pwd");
+        try (PrintWriter out = response.getWriter()) {
+            if ("12345".equals(password))
+                out.append("You are logged in as user - " + username +"!");
+            else
+                out.append("Wrong Password!");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            out.append("Hello, World, from the servlet!");
-        }
     }
 }
