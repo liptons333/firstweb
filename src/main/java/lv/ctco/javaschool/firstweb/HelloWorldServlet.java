@@ -19,7 +19,7 @@ public class HelloWorldServlet extends HttpServlet {
                 out.append("You are logged in as user - " + username +"!");
             else
                 out.append("Wrong Password!");
-            
+
         }
     }
 
